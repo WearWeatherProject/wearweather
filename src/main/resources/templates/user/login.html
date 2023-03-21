@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+<body>
+<section class="bg0 p-t-23 p-b-140">
+    <br><br><br><br><br><br><br><br><br><br><br><br>
+    <div id="content">
+        <div class="login_wrap">
+            <div class="login_wrap_inner">
+                <h2 class="login_logo">WearWeather</h2>
+                <h1 class="text-center">로그인</h1>
+                <p class="text-center">WearWeather is with you</p>
+                <form id="loginForm" method="post" action="<%=request.getContextPath()%>/member/loginPost"%></form>
+            </div>
+        </div>
+    </div>
+
+
+</section>
+
+</body>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</html>
