@@ -8,4 +8,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class HyunjiController {
 
+    /* 아무거나 */
 }
