@@ -54,6 +54,7 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
+
 out/
 
 # mpeltonen/sbt-idea plugin
@@ -83,7 +84,7 @@ fabric.properties
 ### Intellij+all Patch ###
 # Ignore everything but code style settings and run configurations
 # that are supposed to be shared within teams.
-
+application.properties
 .idea/*
 
 !.idea/codeStyles
