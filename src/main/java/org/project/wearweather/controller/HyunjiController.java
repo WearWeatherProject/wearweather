@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HyunjiController {
 
     // 로그인 폼
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login() {return "/user/login";}
+
+
 
 
 
