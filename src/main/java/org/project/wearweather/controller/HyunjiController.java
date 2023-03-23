@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HyunjiController {
 
     // 로그인 폼
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login() {return "/user/login";}
 
+
+    // 장바구니
+    @GetMapping("/cart")
+    public String cart() {return "/product/shopping-cart";}
 
 
 
