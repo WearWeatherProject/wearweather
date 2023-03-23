@@ -7,14 +7,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping
 public class JonghunController {
-    @GetMapping("/orderlist")
+    @GetMapping("/orderlist")//유저의 주문목록
     public String orderlist(){
         return "product/orderlist";
     }
 
-    @GetMapping("/review")
+    @GetMapping("/review")//유저의 리뷰쓰기
     public String review(){return "product/review";}
 
-    @GetMapping("/addproduct")
+    @GetMapping("/addproduct")//관리자의 상품추가
     public String addproduct(){return "product/addproduct";}
+
+    @GetMapping("/manageproduct")//관리자의 상품관리
+    public String manageproducts(){return "product/manageproduct";}
+
+    @GetMapping("/orderproduct")//관리자의 주문관리
+    public String orderproducts(){return "product/orderproduct";}
 }
