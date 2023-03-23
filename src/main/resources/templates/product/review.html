@@ -1,0 +1,57 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+<body>
+<br><br><br><br><br><br><br><br><br><br><br>
+<section class="bg0 p-t-23 p-b-140">
+    <table class="table-shopping-cart">
+        <tr class="table_head">
+            <th class="column-1">Product</th>
+            <th class="column-2"></th>
+            <th class="column-3">Price</th>
+            <th class="column-4">수량</th>
+            <th class="column-4">배송날짜</th>
+            <th class="column-5">Total</th>
+        </tr>
+
+        <tr class="table_row">
+            <td class="column-1">
+                <div class="how-itemcart1">
+                    <img src="images/item-cart-04.jpg" alt="IMG" />
+                </div>
+            </td>
+            <td class="column-2">Fresh Strawberries</td>
+            <td class="column-3">$ 36.00</td>
+            <td class="column-4">1</td>
+            <td class="column-4">2023-03-21</td>
+            <td class="column-5">$ 36.00</td>
+        </tr>
+    </table>
+    <br /><br /><br /><br />
+    <div
+            class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md"
+            style="margin: auto"
+    >
+        <form class="bor8 m-b-20 how-pos4-parent" method="post" action="/">
+          <textarea
+                  class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30"
+                  style=" height: 200px;"
+                  type="text"
+                  name="reviewContent"
+                  placeholder="리뷰를 작성해주세요."
+          ></textarea>
+            <button
+                    type="submit"
+                    class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer"
+            >
+                제출하기
+            </button>
+        </form>
+    </div>
+</section>
+
+</body>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</html>

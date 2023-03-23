@@ -8,7 +8,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping
 public class JonghunController {
     @GetMapping("/orderlist")
-    public String example(){
+    public String orderlist(){
         return "product/orderlist";
     }
+
+    @GetMapping("/review")
+    public String review(){return "product/review";}
 }
