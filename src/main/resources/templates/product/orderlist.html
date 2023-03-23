@@ -121,6 +121,7 @@
                                 <th class="column-4">수량</th>
                                 <th class="column-4">배송날짜</th>
                                 <th class="column-5">Total</th>
+                                <th class="column-2">리뷰</th>
                             </tr>
 
                             <tr class="table_row" th:each="num : ${#numbers.sequence(1,5)}">
@@ -135,6 +136,7 @@
                                 <td class="column-4"> 1 </td>
                                 <td class="column-4"> 2023-03-21 </td>
                                 <td class="column-5">$ 36.00</td>
+                                <td class="column-2"><div class="hov-btn3">리뷰</div></td>
                             </tr>
                         </table>
                     </div>
@@ -144,6 +146,16 @@
         </div>
     </div>
 </form>
+<!-- Pagination -->
+<div class="flex-w w-full p-t-10 m-lr--7" style="justify-content:center">
+    <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
+        1
+    </a>
+
+    <a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
+        2
+    </a>
+</div>
 </body>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </html>
