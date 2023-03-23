@@ -1,0 +1,11 @@
+- vendor > animistion > css > animision.css 파일 중
+.animsition-overlay {
+  position: relative;
+  opacity: 0;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+코드에서 opacity : 0 코드 때문에 login 페이지가 보이지 않음!
+
+
+부트스트랩 css 외의 user 관련 내가 원하는 css 속성들 추가해주기 위해 파일들 생성

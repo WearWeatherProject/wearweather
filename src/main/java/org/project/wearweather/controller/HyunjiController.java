@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/member")
+@RequestMapping("/user")
 public class HyunjiController {
-
     // 로그인 폼
-    @RequestMapping("/login")
-    public String login() {return "/user/login";}
 
-
+    @GetMapping("/login")
+    public String login(){
+        return "user/login";
+    }
 
 
 
