@@ -15,7 +15,9 @@ public class HyunjiController {
     public String login() {return "/user/login";}
 
 
-
+    // 장바구니
+    @GetMapping("/cart")
+    public String cart() {return "/product/shopping-cart";}
 
 
 
