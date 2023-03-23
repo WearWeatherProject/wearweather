@@ -14,4 +14,7 @@ public class JonghunController {
 
     @GetMapping("/review")
     public String review(){return "product/review";}
+
+    @GetMapping("/addproduct")
+    public String addproduct(){return "product/addproduct";}
 }
