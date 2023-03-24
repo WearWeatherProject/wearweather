@@ -3,6 +3,11 @@
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
+
+<!--<meta charset="UTF-8">-->
+<!--<link rel="stylesheet" type="text/css" href="/../../static/css">-->
+
+
 <body style="animation-duration: 1500ms; opacity: 1;">
 <section class="bg0 p-t-23 p-b-140">
 
@@ -14,13 +19,19 @@
     </section>
 
 
-    <div style="display: flex; justify-content: space-around" >
+    <div style="display: flex; justify-content: space-around">
         <div class="p-t-55" style="padding-left: 10px; width: 8%">
             <h4 class="mtext-112 cl2 p-b-33">
                 Categories
             </h4>
 
             <ul>
+                <li class="bor18">
+                    <a href="/product/orderlist" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
+                        주문 조회
+                    </a>
+                </li>
+
                 <li class="bor18">
                     <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
                         회원정보 수정
@@ -202,37 +213,76 @@
         </div>
     </section>-->
 
-        <div class="p-t-55">
+        <!-- name,email,address,phone_number,role(구매자,관리자),createDate -->
+        <div class="p-t-55" style="margin-right: 30%; line-height: 2.666667;">
 
-            <ul>
-                <li class="bor18">
-                    <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-                        회원정보 수정
-                    </a>
-                </li>
+            <form name="mypageContent">
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 60%; font-family: Poppins-Medium; font-size: 22px;">No</p>
+                    <input name="userNo" id="userNo" value="${my.userNo}" class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
 
-                <li class="bor18">
-                    <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-                        배송지 관리
-                    </a>
-                </li>
-
-                <li class="bor18">
-                    <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-                        회원 탈퇴
-                    </a>
-                </li>
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 49.6%; font-family: Poppins-Medium; font-size: 22px;">Name</p>
+                    <input name="userName" id="userName" value="${my.userName}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
 
 
-            </ul>
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 61.8%; font-family: Poppins-Medium; font-size: 22px;">ID</p>
+                    <input name="id" id="id" value="${my.id}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 20.8%; font-family: Poppins-Medium; font-size: 22px;">Phone_number</p>
+                    <input name="userPhone" id="userPhone" value="${my.userPhone}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 51%; font-family: Poppins-Medium; font-size: 22px;">Email</p>
+                    <input name="userEmail" id="userEmail" value="${my.userEmail}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 43.6%; font-family: Poppins-Medium; font-size: 22px;">Mileage</p>
+                    <input name="userMileage" id="userMileage" value="${my.userMileage}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 54.5%; font-family: Poppins-Medium; font-size: 22px;">Role</p>
+                    <input name="identify" id="identify" value="${my.identify}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+                <div style="display: flex">
+                    <p class="cl2" style="margin-right: 42.5%; font-family: Poppins-Medium; font-size: 22px;">Address</p>
+                    <input name="userDetailAddress" id="sample4_detailAddress" value="${my.userDetailAddress}"
+                           class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                           style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;" readonly="readonly"></input>
+                </div>
+
+            </form>
         </div>
 
     </div>
 
 
-
-
 </section>
 </body>
+
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+
 </html>
