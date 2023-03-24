@@ -20,6 +20,17 @@ public class HyunjiController {
     public String cart() {return "/product/shopping-cart";}
 
 
+    // 마이페이지
+    @GetMapping("/mypage")
+    public String mypage() {return "/user/mypage";}
+
+
+    // 회원정보 수정
+    @GetMapping("/modify")
+    public String modify() {return "/user/modify";}
+
+
+
 
 
 }
