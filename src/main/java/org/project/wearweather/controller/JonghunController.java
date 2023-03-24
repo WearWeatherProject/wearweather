@@ -18,9 +18,12 @@ public class JonghunController {
     @GetMapping("/addproduct")//관리자의 상품추가
     public String addproduct(){return "product/addproduct";}
 
-    @GetMapping("/manageproduct")//관리자의 상품관리
-    public String manageproducts(){return "product/manageproduct";}
+//    @GetMapping("/manageproduct")//관리자의 상품관리
+//    public String manageproducts(){return "product/manageproduct";}->관리자로그인시 메인에서 수정
 
     @GetMapping("/orderproduct")//관리자의 주문관리
     public String orderproducts(){return "product/orderproduct";}
+
+    @GetMapping("/register")
+    public String register(){return "user/register";}
 }
