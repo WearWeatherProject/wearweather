@@ -43,5 +43,29 @@
 - women men accessories 없애기
 
 
+*** "내가 보려고 만드는 어노테이션 사전" **
+- @AllArgsConstructor : 모든 필드 값을 파라미터로 받는 생성자를 만드는 어노테이션 (final, @NonNull 포함 O)
+- @NoArgsConstructor : 파라미터가 없는 기본 생성자를 생성하는 어노테이션 (final 필드 포함 X)
+- @RequiredArgsConstructor : final이나 @NonNull 인 필드값만 파라미터로 받는 생성자를 만들어 주는 어논테이션
+- @Builder : 빌더 패턴을 작성해주는 어노테이션
+* Q. @Builder, @NoArgsConstructor 함께 사용해야하나? *
+# A.
+다른 생성자 없이 @AllArgsConstructor 사용했을 때 @Builder 는 이를 사용하게 된다. 왜냐하면 빌더 패턴은 파라미터를 1개씩 가지는 각각의 생성자가 필요하기 때문이다.
+그렇기 때문에 당연히 @AllArgsConstructor 가 필요할 것이다. 하지만 @NoArgsConstructor 만 사용하게 된다면, @Builder는 사용할 매개변수가 없다. 그래서 에러를 발생시킨다.
+만약 @NoArgsConstructor 가 필요하다면 @AllArgsConstructor 를 같이 사용해줘야 한다.
+
+-------------------위의 3개는 생성자 자동 생성 해주는 어노테이션-------------------------
+- @Data : @Getter, @Setter, @RequiredArgsConstructor, @ToString, @EqualsAndHashCode 한꺼번에 설정해주는 어노테이션
+- @ToString : toString() 메서드 자동으로 생서해주는 어노테이션
+  ex) @ToString(exclude = "pw") 에서 exclude 란 특정 필드를 toString() 결과에서 제외시키는 것이다.
+- @EqualsAndHashCode : equals, hashCode 자동 생성해주는 어노테이션
+  - equals : 두 객체의 내용이 같은지 비교 / hashCode : 두 객체가 같은 객체인지 비교
+- @Entity : DB 테이블과 Class(VO, DTO)와 맵핑한다면 반드시 붙여줘야하는 어노테이션 (name : 엔터티 이름을 지정하는, 기본값으로 클래스 이름 그대로 사용함)
+- @Table : 맵핑할 테이블을 지정 (name : 맵핑할 테이블 이름 지정)
+- @Column : 객체 필드와 DB 테이블 컬럼을 맵핑 (nullable : NULL 을 허용할지 말지 결정하는)
+- @Id : 기본키의 맵핑, JPA 가 객체를 관리할 때 식별할 기본키를 지정함
+- @Enumerated : 엔터티 클래스 속성 중 Enum 타입의 변수에 사용할 수 있는 어노테이션
+  - EnumType.STRING : 각 Enum 이름을 컬럼에 저장함 / EnumType.ORDINAL : 각 Enum 에 대응되는 순서를 칼럼에 저장함
+
 
 
