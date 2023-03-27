@@ -7,6 +7,72 @@
         border-bottom: 1px solid black;
     }
     input{white-space: nowrap;}
+
+    :root {
+        --bgColor: #3a3a3a;
+        --hoverBg: #616161;
+        --text: #bbb;
+    }
+
+    /*.container {*/
+    /*    width: clamp(0px, 100%, 512px);*/
+    /*    margin: 32px auto;*/
+    /*    text-align: center;*/
+    /*}*/
+
+    .label {
+        width: 100%;
+        height: 100%;
+        margin: 0px auto;
+        cursor: pointer;
+        background-color: var(--bgColor);
+    }
+
+    .inner {
+        width: 100%;
+        height: 128px;
+        margin: 64px auto;
+        border-radius: 8px;
+        font-size: 16px;
+        line-height: 128px;
+        background-color: var(--bgColor);
+        color: var(--text);
+    }
+
+    @media (any-hover: hover){
+        .inner:hover{
+            background-color: var(--hoverBg);
+        }
+    }
+
+    .label--hover{
+        background-color: var(--hoverBg);
+    }
+
+    .preview-title{
+        font-size: 32px;
+        margin-bottom: 8px;
+    }
+
+    .preview {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        padding: 16px;
+        margin-bottom: 16px;
+        border-radius: 8px;
+        align-items: center;
+        background-color: var(--bgColor);
+    }
+
+    .embed-img{
+        width: 100%;
+        height: 128px;
+        object-position: center;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
 </style>
 <body>
 <br><br><br><br>
@@ -17,16 +83,19 @@
 </section>
 <section class="bg0 p-t-104 p-b-116">
     <div class="container">
-        <form>
+        <form action="/addproductPOST" method="GET">
         <div class="flex-w flex-tr">
 
             <div class="size-210 bor10 p-lr-70 p-t-55 p-b-70 p-lr-15-lg w-full-md">
 
-                    <h4 class="mtext-105 cl2 txt-center p-b-30">
-                        이미지를 추가하세요.
-                    </h4>
-
-                    <div>드래그앤드롭 div 작성</div>
+                <main class="container">
+                    <label class="label" id="label" for="input">
+                        <div class="inner" id="inner">드래그하거나 클릭해서 업로드</div>
+                    </label>
+                    <input id="input" class="input" accept="image/*" type="file" required="true" multiple="true" hidden="true" name="multipartList">
+                    <p class="preview-title">preview</p>
+                    <div class="preview" id="preview"></div>
+                </main>
 
             </div>
 
@@ -44,7 +113,7 @@
 								상품개수
 							</span>
                     </div>
-                    <input type="number" value="1"/><br><br>
+                    <input type="number" value="1" name="valueCount"/><br><br>
                     <div class="mtext-105 size-212 p-t-2">
 							<span class="mtext-110 cl2">
 								상품가격
@@ -68,7 +137,7 @@
                         <span class="mtext-110 cl2">
 								상품정보 입력
 							</span>
-                        <textarea placeholder="상품정보를 여기에 입력하세요..........." style="width: 100%;border: 1px solid #b7b7b7;padding: .3rem;" rows="7"></textarea>
+                        <textarea placeholder="상품정보를 여기에 입력하세요..........." style="width: 100%;border: 1px solid #b7b7b7;padding: .3rem;" rows="7" name="productInfo"></textarea>
                     </div>
                     <button class="stext-101 cl0 size-101 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer my-3" type="submit" style="width: calc(100% - 60px);">등록하기</button>
                 </div>
@@ -78,5 +147,113 @@
     </div>
 </section>
 </body>
+
+<script>
+    var input = document.getElementById("input");
+    var initLabel = document.getElementById("label");
+
+    input.addEventListener("change", (event) => {
+        const files = changeEvent(event);
+        handleUpdate(files);
+    });
+
+    initLabel.addEventListener("mouseover", (event) => {
+        event.preventDefault();
+        const label = document.getElementById("label");
+        label?.classList.add("label--hover");
+    });
+
+    initLabel.addEventListener("mouseout", (event) => {
+        event.preventDefault();
+        const label = document.getElementById("label");
+        label?.classList.remove("label--hover");
+    });
+
+    document.addEventListener("dragenter", (event) => {
+        event.preventDefault();
+        console.log("dragenter");
+        if (event.target.className === "inner") {
+            event.target.style.background = "#616161";
+        }
+    });
+
+    document.addEventListener("dragover", (event) => {
+        console.log("dragover");
+        event.preventDefault();
+    });
+
+    document.addEventListener("dragleave", (event) => {
+        event.preventDefault();
+        console.log("dragleave");
+        if (event.target.className === "inner") {
+            event.target.style.background = "#3a3a3a";
+        }
+    });
+
+    document.addEventListener("drop", (event) => {
+        event.preventDefault();
+        console.log("drop");
+        if (event.target.className === "inner") {
+            const files = event.dataTransfer?.files;
+            event.target.style.background = "#3a3a3a";
+            handleUpdate([...files]);
+        }
+    });
+
+    function changeEvent(event){
+        const { target } = event;
+        return [...target.files];
+    };
+
+    function handleUpdate(fileList){
+        const preview = document.getElementById("preview");
+
+        fileList.forEach((file) => {
+            const reader = new FileReader();
+            reader.addEventListener("load", (event) => {
+                const img = el("img", {
+                    className: "embed-img",
+                    src: event.target?.result,
+                });
+                const imgContainer = el("div", { className: "container-img" }, img);
+                preview.append(imgContainer);
+            });
+            reader.readAsDataURL(file);
+        });
+    };
+
+    function el(nodeName, attributes, ...children) {
+        const node =
+            nodeName === "fragment"
+                ? document.createDocumentFragment()
+                : document.createElement(nodeName);
+
+        Object.entries(attributes).forEach(([key, value]) => {
+            if (key === "events") {
+                Object.entries(value).forEach(([type, listener]) => {
+                    node.addEventListener(type, listener);
+                });
+            } else if (key in node) {
+                try {
+                    node[key] = value;
+                } catch (err) {
+                    node.setAttribute(key, value);
+                }
+            } else {
+                node.setAttribute(key, value);
+            }
+        });
+
+        children.forEach((childNode) => {
+            if (typeof childNode === "string") {
+                node.appendChild(document.createTextNode(childNode));
+            } else {
+                node.appendChild(childNode);
+            }
+        });
+
+        return node;
+    }
+</script>
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </html>

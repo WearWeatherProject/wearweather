@@ -2,6 +2,7 @@ package org.project.wearweather.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.hibernate.service.spi.InjectService;
+import org.project.wearweather.dto.ProductDTO;
 import org.project.wearweather.dto.RegisterDTO;
 import org.project.wearweather.entity.Role;
 import org.project.wearweather.entity.User;
@@ -56,5 +57,10 @@ public class JonghunController {
         userService.registerUser(dto);
         //System.out.println("회원가입 버튼클릭후 받아온 dto ->>>>"+dto.toString());
         return "index";
+    }
+
+    @PostMapping("/addproductPOST")
+    public String addProduct() throws Exception {
+        return "/";
     }
 }
