@@ -25,7 +25,7 @@ public class User {
     @Column(length = 10, nullable = false)
     private String userID;
 
-    @Column(length = 15, nullable = false)
+    @Column(length = 100, nullable = false)
     private String userPwd;
 
     @Column(length = 100, nullable = false)
