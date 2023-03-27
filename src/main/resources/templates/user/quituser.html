@@ -19,45 +19,45 @@
 
     <div style="display: flex">
       <p class="cl2" style="margin-left: 42.5%; padding-top: 1.5%; font-family: Poppins-Medium; font-size: 20px;">안녕하세요!&nbsp;${my.userName}&nbsp;회원님</p>
-      </div>
+    </div>
   </section>
 
 
   <div style="display: flex; justify-content: space-around">
     <div>
-    <div class="p-t-55" style="padding-left: 10px; width: 8%">
-      <h4 class="mtext-112 cl2 p-b-33">
-        Categories
-      </h4>
+      <div class="p-t-55" style="padding-left: 10px; width: 8%">
+        <h4 class="mtext-112 cl2 p-b-33">
+          Categories
+        </h4>
 
-      <ul style="white-space: nowrap;">
-        <li class="bor18">
-          <a href="/orderlist" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-            주문 조회
-          </a>
-        </li>
+        <ul style="white-space: nowrap;">
+          <li class="bor18">
+            <a href="/orderlist" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
+              주문 조회
+            </a>
+          </li>
 
-        <li class="bor18">
-          <a href="/user/mypage" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-            마이페이지
-          </a>
-        </li>
+          <li class="bor18">
+            <a href="/user/mypage" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
+              마이페이지
+            </a>
+          </li>
 
-        <li class="bor18">
-          <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-            배송지 관리
-          </a>
-        </li>
+          <li class="bor18">
+            <a href="#" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
+              배송지 관리
+            </a>
+          </li>
 
-        <li class="bor18">
-          <a href="/user/quituser" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
-            회원 탈퇴
-          </a>
-        </li>
+          <li class="bor18">
+            <a href="/user/modify" class="dis-block stext-115 cl6 hov-cl1 trans-04 p-tb-8 p-lr-4">
+              회원정보수정
+            </a>
+          </li>
 
 
-      </ul>
-    </div>
+        </ul>
+      </div>
     </div>
 
     <!-- name,email,address,phone_number,role(구매자,관리자),createDate -->
@@ -115,19 +115,19 @@
         </div>
 
         <div style="line-height: 4">
-        <div style="display: flex">
-          <p class="cl2" style="margin-right: 3%; font-family: Poppins-Medium; font-size: 22px;">SMS 수신여부&nbsp;</p><p style="color: red">*</p>
-          <input name="smsReceive" id="smsReceive" type="checkbox" checked
-                 class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-                 style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;"></input>
-          <label for="smsReceive">수신함</label>
-          <input name="smsNotReceive" id="smsNotReceive" type="checkbox"
-                 class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-                 style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;">
-          <label for="smsNotReceive">수신안함</label>
-        </div>
-        <p class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-           style="border: 0; font-family: Poppins-Regular; font-size: 15px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
+          <div style="display: flex">
+            <p class="cl2" style="margin-right: 3%; font-family: Poppins-Medium; font-size: 22px;">SMS 수신여부&nbsp;</p><p style="color: red">*</p>
+            <input name="smsReceive" id="smsReceive" type="checkbox" checked
+                   class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                   style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;"></input>
+            <label for="smsReceive">수신함</label>
+            <input name="smsNotReceive" id="smsNotReceive" type="checkbox"
+                   class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                   style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;">
+            <label for="smsNotReceive">수신안함</label>
+          </div>
+          <p class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+             style="border: 0; font-family: Poppins-Regular; font-size: 15px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 SMS로 받으실 수 있습니다.</p>
         </div>
 
         <div style="display: flex">
@@ -138,32 +138,32 @@
         </div>
 
         <div style="line-height: 4">
-        <div style="display: flex">
-          <p class="cl2" style="margin-right: -0.2%; font-family: Poppins-Medium; font-size: 22px;">이메일 수신여부</p><p style="color: red">&nbsp;*</p>
-          <input name="emailReceive" id="emailReceive" type="checkbox" checked
-                 class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-                 style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;"></input>
-          <label for="emailReceive">수신함</label>
-          <input name="emailNotReceive" id="emailNotReceive" type="checkbox"
-                 class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-                 style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;">
-          <label for="emailNotReceive">수신안함</label>
-        </div>
-        <p class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
-           style="border: 0; font-family: Poppins-Regular; font-size: 15px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
+          <div style="display: flex">
+            <p class="cl2" style="margin-right: -0.2%; font-family: Poppins-Medium; font-size: 22px;">이메일 수신여부</p><p style="color: red">&nbsp;*</p>
+            <input name="emailReceive" id="emailReceive" type="checkbox" checked
+                   class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                   style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;"></input>
+            <label for="emailReceive">수신함</label>
+            <input name="emailNotReceive" id="emailNotReceive" type="checkbox"
+                   class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+                   style="border: 0; border-bottom: 1px solid #e6e6e6; font-family: Poppins-Regular; font-size: 15px;">
+            <label for="emailNotReceive">수신안함</label>
+          </div>
+          <p class="dis-block cl6 hov-cl1 trans-04 p-tb-8 p-lr-4"
+             style="border: 0; font-family: Poppins-Regular; font-size: 15px;">쇼핑몰에서 제공하는 유익한 이벤트 소식을 이메일로 받으실 수 있습니다.</p>
         </div>
 
 
         <div class="txt-center" style="display: flex">
-        <button class="flex-c-m stext-101 cl0 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onclick="completed_modify()"
-                type="submit" style="width: 25%; height: 35px;">
-          회원정보수정
-        </button>
+          <button class="flex-c-m stext-101 cl0 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onclick="member_quit()"
+                  type="submit" style="width: 25%; height: 35px;">
+            회원탈퇴
+          </button>
           <br>
-        <button class="flex-c-m stext-101 cl0 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onclick="execution_add_address()"
-                type="submit" style="width: 25%; height: 35px;">
-          취소
-        </button>
+          <button class="flex-c-m stext-101 cl0 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer" onclick="location.href='/'"
+                  type="submit" style="width: 25%; height: 35px;">
+            취소
+          </button>
         </div>
 
       </form>
@@ -175,17 +175,27 @@
 </section>
 </body>
 
-
+<!-- 탈퇴 버튼 누르면 일어나는 js -->
 <script type="text/javascript">
 
-  function completed_modify() {// 회원정보수정 버튼 누르면 수정 완료 메시지 띄워줌과 확인버튼 누르면 다시 수정페이지로 이동하기
+  function member_quit() {// 회원탈퇴 페이지에서 탈퇴버튼 누르면 한번 더 묻는 메시지 띄어주고 확인 버튼 누르면 비밀번호 체크하는 창 띄워주기
 
-    alert('회원정보 수정이 완료되었습니다.');
+    if(confirm('정말로 회원탈퇴를 하시겠습니까?') == true) {
+      return checkPassword();
+    }
+    else {
+      return;
+    }
 
-    return '/user/modify';
   }
 </script>
 
+<!-- 비밀번호 일치 여부 확인하는 js -->
+<script type="text/javascript">
+  function checkPassword() {// 탈퇴하기 위해 비밀번호 입력하고 비밀번호가 맞는지 체크한 후 탈퇴하도록 해주는 함수
+
+  }
+</script>
 
 
 

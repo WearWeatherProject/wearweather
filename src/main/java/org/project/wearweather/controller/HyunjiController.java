@@ -30,6 +30,9 @@ public class HyunjiController {
     public String modify() {return "/user/modify";}
 
 
+    // 회원탈퇴
+    @GetMapping("/quituser")
+    public String quituser() {return "/user/quituser";}
 
 
 
