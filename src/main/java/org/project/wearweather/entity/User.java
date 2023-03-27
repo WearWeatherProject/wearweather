@@ -2,10 +2,12 @@ package org.project.wearweather.entity;
 
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Data
 @Table(name = "User")
@@ -41,8 +43,8 @@ public class User {
     @Column(nullable=false)
     private Integer mileage;
 
-    @Column
-    private LocalDateTime userRegDate;
+    @CreationTimestamp
+    private Date userRegDate;
 
     @Column(nullable = false)
     private String userAddress;
