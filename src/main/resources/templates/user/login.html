@@ -13,13 +13,18 @@
                 <strong>Login</strong>
             </h4>
 
-            <form action="/login" method="POST">
+            <!-- 로그인 버튼 클릭시 /login 이 발동됨 /login 이 발동되면
+             스프링은 IoC 컨테이너에서 UserDetailsService 로 등록되어 있는 타입을 찾는다.
+             그러면 PrincipalDetailsService 를 찾게 된다. 그래서 loadUserByUsername 가
+             실행이 된다. 이때 넘어온 파라미터 userId 를 들고 가게 된다. -->
+
+            <form action="/loginPost" method="POST">
             <div class="bor8 m-b-20 how-pos4-parent" style="border-radius: 8px; display: flex">
                 <div name="id-icon" style="position: relative; top:15px; left:15px;">
                     <i class="fa-solid fa-id-badge fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" name="id"
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" name="userID"
                        placeholder="아이디를 입력해주세요.">
             </div>
 
@@ -30,7 +35,7 @@
                     <i class="fa-solid fa-key fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" name="password"
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" name="userPwd"
                        placeholder="비밀번호를 입력해주세요.">
             </div>
 

@@ -1,11 +1,7 @@
 package org.project.wearweather.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.hibernate.service.spi.InjectService;
-import org.project.wearweather.dto.ProductDTO;
-import org.project.wearweather.dto.RegisterDTO;
-import org.project.wearweather.entity.Role;
-import org.project.wearweather.entity.User;
+import org.project.wearweather.dto.UserDTO;
 import org.project.wearweather.repository.UserRepository;
 import org.project.wearweather.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +9,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class JonghunController {
 
     private final UserService userService;
+
 
     @GetMapping("/orderlist")//유저의 주문목록
     public String orderlist() {
@@ -52,11 +48,12 @@ public class JonghunController {
         return "user/register";
     }
     @PostMapping("/register")
-    public String registerPOST(RegisterDTO dto) throws Exception {
+    public String registerPOST(UserDTO dto) throws Exception {
         //System.out.println("service 실행 중..");
         userService.registerUser(dto);
         //System.out.println("회원가입 버튼클릭후 받아온 dto ->>>>"+dto.toString());
-        return "index";
+
+        return "redirect:/user/login";
     }
 
     @PostMapping("/addproductPOST")
