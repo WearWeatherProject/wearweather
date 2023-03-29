@@ -17,6 +17,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     /* findBy규칙 -> Username문법 */
 
     // select * from user where username = ?(<-파라미터) 이게 호출이 된다.
-    public User findByUserID(String userID); //Jpa Query methods
+    public User findByUserID(String username); //Jpa Query methods
 
 }
