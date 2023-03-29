@@ -18,14 +18,14 @@
              그러면 PrincipalDetailsService 를 찾게 된다. 그래서 loadUserByUsername 가
              실행이 된다. 이때 넘어온 파라미터 userId 를 들고 가게 된다. -->
 
-            <form action="/loginPost" method="POST">
+            <form id="frm" name="frm" action="/loginPost" method="POST">
             <div class="bor8 m-b-20 how-pos4-parent" style="border-radius: 8px; display: flex">
                 <div name="id-icon" style="position: relative; top:15px; left:15px;">
                     <i class="fa-solid fa-id-badge fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" name="userID"
-                       placeholder="아이디를 입력해주세요.">
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" id="userID" name="userID"
+                       placeholder="아이디를 입력해주세요." required />
             </div>
 
 
@@ -35,15 +35,15 @@
                     <i class="fa-solid fa-key fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" name="userPwd"
-                       placeholder="비밀번호를 입력해주세요.">
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" id="userPwd" name="userPwd"
+                       placeholder="비밀번호를 입력해주세요." required />
             </div>
 
             <!-- remeber me 체크박스 -->
-            <div>
-                <label class="login_checkbox">
-                <input type="checkbox" name="remember-me">
-                <span class="login_checkbox_label">로그인 상태 유지</span>
+            <div class="form_checkbox_user">
+                <input class="form_checkbox_input" type="checkbox" id="remember_me" name="remember-me" />
+                <label class="login_checkbox" for="remember_me">
+                로그인 상태 유지
                 </label>
             </div>
 
