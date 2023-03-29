@@ -1,7 +1,6 @@
 package org.project.wearweather;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -13,12 +12,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 
 import static org.project.wearweather.entity.Role.ROLE_ADMIN;
 
 @RequiredArgsConstructor
-@EnableGlobalMethodSecurity(securedEnabled = true) //  @Secured 어노테이션 활성화 (권한이 필요한 API에 @Secured 어노테이션 추가하여 권한 설정할 수 있다. 스프링 시큐리티가 로그인한 회원의 권한을 인식하도록 수정한다.)
+@EnableGlobalMethodSecurity(prePostEnabled = true) //  @prePost 어노테이션 활성화 (권한이 필요한 API에 @prePost 어노테이션 추가하여 권한 설정할 수 있다. 스프링 시큐리티가 로그인한 회원의 권한을 인식하도록 수정한다.)
 @Configuration // 서버가 기동될 때 설정해주겠다.
 @EnableWebSecurity // 스프링 시큐리티 필터가 스프링 필터체인에 등록이 된다.(스프링 security 지원을 가능하게 함)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -42,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     // js, css, image 설정은 보안 설정의 영향 밖에 있도록 만들어주는 설정
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+        web.ignoring().antMatchers("/css/**", "/js/**", "/img/**");
     }
 
 
