@@ -11,7 +11,6 @@ import java.util.Optional;
 // CRUD 함수를 JpaRepository 가 들고 있다.
 // @Repository 라는 어노테이션이 없어도 JpaRepository 를 상속했기 때문에 IoC 가 된다.
 // 그래서 자동으로 UserRepository 가 빈으로 등록이 된다..?
-@Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
     /* findBy규칙 -> Username문법 */

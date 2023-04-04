@@ -3,6 +3,7 @@ package org.project.wearweather.entity;
 import lombok.*;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
@@ -49,4 +50,8 @@ public class User {
 
     @Column(nullable = false)
     private String userAddress;
+
+
+    //public User(String userID, String userPwd, AuthorityUtils.)
+
 }

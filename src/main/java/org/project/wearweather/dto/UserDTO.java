@@ -27,12 +27,17 @@ public class UserDTO {
                 .userPwd(userPwd)
                 .userName(userName)
                 .userEmail(userEmail)
-                .role(role.ROLE_USER)
+                .role(role)
                 .build();
 
         return user;
     }
 
-
+    @Builder
+    public UserDTO(String userID, String userPwd, Role role) {
+        this.userID = userID;
+        this.userPwd = userPwd;
+        this.role = role;
+    }
 
 }

@@ -9,13 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping
 public class HyunjiController {
 
     // 스프링시큐리티가 해당 주소를 낚아챔 - SecurityConfig 파일 생성 후 작동안함.
     // 로그인 폼 페이지
-    @GetMapping("/login")
-    public String login() {return "/user/login";}
+    @GetMapping("/user/login")
+    public String login(UserDTO userDTO) {return "/user/login";}
 
     // 로그인 버튼 누르면 실행되는 아이
     // 로그인 성공시 -> "redirect:/"
@@ -30,29 +30,35 @@ public class HyunjiController {
     CSRF protection 이 기본적으로 enable 되어 있기 때문
     CSRF protection 을 disable 하면 GET /user/logout 으로도 사용 가능
     */
-    @GetMapping("/logout")
+    @GetMapping("/user/logout")
     public String logout() {return "redirect:/user/login";}
 
 
     // 장바구니
-    @GetMapping("/cart")
+    @GetMapping("/user/cart")
     public String cart() {return "/product/shopping-cart";}
 
 
     // 마이페이지
-    @GetMapping("/mypage")
+    @GetMapping("/user/mypage")
     public String mypage() {return "/user/mypage";}
 
 
     // 회원정보 수정
-    @GetMapping("/modify")
+    @GetMapping("/user/modify")
     public String modify() {return "/user/modify";}
 
 
     // 회원탈퇴
-    @GetMapping("/quituser")
+    @GetMapping("/user/quituser")
     public String quituser() {return "/user/quituser";}
 
+
+    // 인가되지 않은(접근할 수 없는) 페이지로 이동하려고 할 때
+    @GetMapping("/forbidden")
+    public String exceptionHandling() {
+        return "/";
+    }
 
 
 }

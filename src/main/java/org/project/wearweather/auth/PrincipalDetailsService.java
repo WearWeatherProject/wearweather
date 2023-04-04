@@ -3,13 +3,17 @@ package org.project.wearweather.auth;
 import lombok.RequiredArgsConstructor;
 import org.project.wearweather.entity.User;
 import org.project.wearweather.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import java.util.Optional;
 
 // 시큐리티 설정에서 loginProcessingUrl("/login"); 으로 걸어놨기 때문에
 // /login 요청이 오면 자동으로 UserDetailsService 타입으로 IoC 되어있는
@@ -18,10 +22,11 @@ import org.springframework.transaction.annotation.Transactional;
 /*@Transactional
 @RequiredArgsConstructor
 @Component*/
+@Slf4j
+@Component
 @Service
 @RequiredArgsConstructor
 public class PrincipalDetailsService implements UserDetailsService {
-
     @Autowired
     private UserRepository userRepository;
 
@@ -32,13 +37,12 @@ public class PrincipalDetailsService implements UserDetailsService {
     // 이걸 loadUserByUsername 가 알아서 해준다..
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User userEntity = userRepository.findByUserID(username);
-
-        if(userEntity != null) {
-            System.out.println("*** 님,,,, 들어오셨나요,,?");
-            return new PrincipalDetails(userEntity);// Authentication 내부에 들어감
+        log.info("**************들어와라 진짜로*********" + username);
+        User user = userRepository.findByUserID(username);
+        if (user != null) {
+            log.info("또잉");
+            return new PrincipalDetails(user);
         }
-
         return null;
     }
 }

@@ -39,6 +39,9 @@ import java.util.Collection;
 @Data
 public class PrincipalDetails implements UserDetails {
 
+    // User 클래스 커스텀
+    // spring security 가 제공하는 User 클래스를 우리가 정의한 User로 사용하기 위해 커스텀한다.
+    // 이후 SecurityUser 를 통해 User 엔터티에 접근할 것이므로 User를 필드로 갖게 하고 생성자를 통해 값을 유지시킨다.
     private User user; // 컴포지션
 
     public PrincipalDetails(User user) {// user 를 받아서 생성자에 넣어준다.
@@ -63,7 +66,7 @@ public class PrincipalDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return user.getUserID();
+        return user.getUserName();
     }
 
 

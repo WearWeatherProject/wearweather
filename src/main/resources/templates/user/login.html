@@ -18,13 +18,13 @@
              그러면 PrincipalDetailsService 를 찾게 된다. 그래서 loadUserByUsername 가
              실행이 된다. 이때 넘어온 파라미터 userId 를 들고 가게 된다. -->
 
-            <form id="frm" name="frm" action="/loginPost" method="POST">
+            <form id="frm" name="frm" th:action="@{/loginPost}" method="POST" th:object="${user}">
             <div class="bor8 m-b-20 how-pos4-parent" style="border-radius: 8px; display: flex">
                 <div name="id-icon" style="position: relative; top:15px; left:15px;">
                     <i class="fa-solid fa-id-badge fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" id="userID" name="userID"
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="text" id="userID"  name="userID"
                        placeholder="아이디를 입력해주세요." required />
             </div>
 
@@ -35,7 +35,7 @@
                     <i class="fa-solid fa-key fa-lg" aria-hidden="true"></i>
                     <script src="https://kit.fontawesome.com/adce1e4903.js" crossorigin="anonymous"></script>
                 </div>
-                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" id="userPwd" name="userPwd"
+                <input class="stext-111 cl2 plh3 size-116 p-r-30" style="padding-left: 30px" type="password" id="userPwd"  name="userPwd"
                        placeholder="비밀번호를 입력해주세요." required />
             </div>
 
@@ -49,7 +49,7 @@
 
             <br>
 
-            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+            <button type="submit" class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
                 로그인
             </button>
             <br>
