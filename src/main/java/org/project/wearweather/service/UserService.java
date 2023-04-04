@@ -4,6 +4,7 @@ import org.project.wearweather.dto.UserDTO;
 import org.project.wearweather.entity.Role;
 import org.project.wearweather.entity.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 public interface UserService {
     public Long registerUser(UserDTO dto) throws Exception;
@@ -13,7 +14,7 @@ public interface UserService {
 
     //회원가입시 dto -> 엔터티 변환
     default User RegDtoToEntity(UserDTO dto){
-        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         User entity = User.builder()
                 .userID(dto.getUserID())
                 .userPwd(passwordEncoder.encode(dto.getUserPwd()))
